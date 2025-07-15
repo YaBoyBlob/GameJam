@@ -12,7 +12,7 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += delta * 1000
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("space") :
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("Jump")
 			
