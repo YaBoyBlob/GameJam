@@ -1,21 +1,20 @@
-[gd_scene load_steps=36 format=3 uid="uid://c313gchwqrufe"]
+[gd_scene load_steps=35 format=3 uid="uid://c313gchwqrufe"]
 
 [ext_resource type="Script" path="res://Scenes/levels.gd" id="1_idf3a"]
 [ext_resource type="Texture2D" uid="uid://bwf622ag1r58g" path="res://Assets/Stages/Lvl_1.png" id="2_7rq0f"]
 [ext_resource type="Texture2D" uid="uid://p7b1bowf1r3c" path="res://Assets/Units/Placeholder_Texture.png" id="3_u375n"]
 [ext_resource type="Texture2D" uid="uid://b4gw2tkoyubip" path="res://Assets/Units/Block.png" id="4_0w4fm"]
-[ext_resource type="Texture2D" uid="uid://bpk0j4onkrtgn" path="res://Assets/Obstacles/Tip1.png" id="5_wqq1p"]
-[ext_resource type="Texture2D" uid="uid://drr6my567k76l" path="res://Assets/Obstacles/Pop-Up_MoveTut.png" id="6_7bdj5"]
-[ext_resource type="Texture2D" uid="uid://cwgjf6khrmauu" path="res://Assets/Obstacles/Pop-Up_BlockTut.png" id="7_u6hbp"]
+[ext_resource type="Texture2D" uid="uid://bpk0j4onkrtgn" path="res://Assets/UIs/Tip1.png" id="5_wqq1p"]
+[ext_resource type="Texture2D" uid="uid://drr6my567k76l" path="res://Assets/UIs/Pop-Up_MoveTut.png" id="7_u6hbp"]
 [ext_resource type="PackedScene" uid="uid://7w0aigtov2ae" path="res://Units/main_character.tscn" id="8_ah1f2"]
-[ext_resource type="Texture2D" uid="uid://bsfbw7rggoyip" path="res://Assets/Obstacles/Pop-Up_ResetTut.png" id="8_h7mw4"]
-[ext_resource type="Texture2D" uid="uid://bgxj2ldw7pksi" path="res://Assets/Booting_Screen.png" id="9_vc3u3"]
-[ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/Blink.png" id="10_gwynl"]
-[ext_resource type="Texture2D" uid="uid://dscqd8naf3cch" path="res://Assets/Obstacles/Toolbar.png" id="13_kfhfm"]
-[ext_resource type="Texture2D" uid="uid://nn6ur3mwwt34" path="res://Assets/Obstacles/Button_Block.png" id="14_vl44r"]
-[ext_resource type="Texture2D" uid="uid://dttq3hm2p6vyt" path="res://Assets/Obstacles/Button_Ball.png" id="15_fr0th"]
-[ext_resource type="Texture2D" uid="uid://c6xyv56aqipl4" path="res://Assets/Obstacles/Button_Plank.png" id="16_8qr2s"]
-[ext_resource type="Texture2D" uid="uid://cd0turrrxqbo2" path="res://Assets/Obstacles/Button_Reset.png" id="17_gjtb4"]
+[ext_resource type="Texture2D" uid="uid://bsfbw7rggoyip" path="res://Assets/UIs/Pop-Up_ResetTut.png" id="8_h7mw4"]
+[ext_resource type="Texture2D" uid="uid://bgxj2ldw7pksi" path="res://Assets/StartingStuff/Booting_Screen.png" id="9_vc3u3"]
+[ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="10_gwynl"]
+[ext_resource type="Texture2D" uid="uid://dscqd8naf3cch" path="res://Assets/UIs/Toolbar.png" id="13_kfhfm"]
+[ext_resource type="Texture2D" uid="uid://nn6ur3mwwt34" path="res://Assets/UIs/Button_Block.png" id="14_vl44r"]
+[ext_resource type="Texture2D" uid="uid://dttq3hm2p6vyt" path="res://Assets/UIs/Button_Ball.png" id="15_fr0th"]
+[ext_resource type="Texture2D" uid="uid://c6xyv56aqipl4" path="res://Assets/UIs/Button_Plank.png" id="16_8qr2s"]
+[ext_resource type="Texture2D" uid="uid://cd0turrrxqbo2" path="res://Assets/UIs/Button_Reset.png" id="17_gjtb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fiq2t"]
 texture = ExtResource("3_u375n")
@@ -255,7 +254,7 @@ texture = ExtResource("5_wqq1p")
 
 [node name="Pop-upMoveTut" type="Sprite2D" parent="."]
 position = Vector2(262, 158)
-texture = ExtResource("6_7bdj5")
+texture = ExtResource("7_u6hbp")
 
 [node name="Pop-upBlockTut" type="Sprite2D" parent="."]
 position = Vector2(744, 114)
@@ -290,7 +289,8 @@ shape = SubResource("RectangleShape2D_lweuo")
 position = Vector2(320, 181)
 texture = ExtResource("13_kfhfm")
 
-[node name="Box" type="TextureButton" parent="CanvasLayer"]
+[node name="Block" type="TextureButton" parent="CanvasLayer"]
+visible = false
 offset_left = 4.0
 offset_top = 105.0
 offset_right = 44.0
@@ -326,5 +326,5 @@ sprite_frames = SubResource("SpriteFrames_kg7ui")
 animation = &"Blink-Close"
 
 [connection signal="area_exited" from="LevelCamera/Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="button_down" from="CanvasLayer/Box" to="." method="_on_box_button_down"]
+[connection signal="button_down" from="CanvasLayer/Block" to="." method="_on_box_button_down"]
 [connection signal="button_down" from="CanvasLayer/Reset" to="." method="_on_reset_button_down"]

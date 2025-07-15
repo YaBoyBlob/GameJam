@@ -1,14 +1,14 @@
 [gd_scene load_steps=36 format=3 uid="uid://fe1jdadi4qdh"]
 
-[ext_resource type="Texture2D" uid="uid://buplprrgex87p" path="res://Assets/Starting_Scene.png" id="1_6p1lm"]
+[ext_resource type="Texture2D" uid="uid://buplprrgex87p" path="res://Assets/StartingStuff/Starting_Scene.png" id="1_6p1lm"]
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_o31ak"]
-[ext_resource type="Texture2D" uid="uid://bgxj2ldw7pksi" path="res://Assets/Booting_Screen.png" id="2_4hnip"]
-[ext_resource type="Texture2D" uid="uid://bp32fh43dnaaq" path="res://Assets/HomeScreen.png" id="3_8n78m"]
-[ext_resource type="Texture2D" uid="uid://7gl0jqq0jj2b" path="res://Assets/Credits.png" id="3_65rv8"]
-[ext_resource type="Texture2D" uid="uid://bl8pbclkmufkt" path="res://Assets/Menu_Exit.png" id="5_ab7mp"]
-[ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/Menu_Start.png" id="5_ii03c"]
-[ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/Blink.png" id="6_dymbg"]
-[ext_resource type="Texture2D" uid="uid://dlsjewxvp88a" path="res://Assets/Menu_Exit_Broken.png" id="6_osxpj"]
+[ext_resource type="Texture2D" uid="uid://bgxj2ldw7pksi" path="res://Assets/StartingStuff/Booting_Screen.png" id="2_4hnip"]
+[ext_resource type="Texture2D" uid="uid://bp32fh43dnaaq" path="res://Assets/StartingStuff/HomeScreen.png" id="3_8n78m"]
+[ext_resource type="Texture2D" uid="uid://7gl0jqq0jj2b" path="res://Assets/StartingStuff/Credits.png" id="3_65rv8"]
+[ext_resource type="Texture2D" uid="uid://bl8pbclkmufkt" path="res://Assets/StartingStuff/Menu_Exit.png" id="5_ab7mp"]
+[ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/StartingStuff/Menu_Start.png" id="5_ii03c"]
+[ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="6_dymbg"]
+[ext_resource type="Texture2D" uid="uid://dlsjewxvp88a" path="res://Assets/StartingStuff/Menu_Exit_Broken.png" id="6_osxpj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nory4"]
 atlas = ExtResource("2_4hnip")
