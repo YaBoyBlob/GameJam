@@ -244,6 +244,7 @@ offset_left = 213.0
 offset_top = 133.0
 offset_right = 277.0
 offset_bottom = 197.0
+focus_mode = 0
 texture_normal = ExtResource("5_ii03c")
 
 [node name="ExitButton" type="TextureButton" parent="UIs"]
@@ -252,6 +253,7 @@ offset_left = 362.0
 offset_top = 133.0
 offset_right = 426.0
 offset_bottom = 197.0
+focus_mode = 0
 texture_normal = ExtResource("5_ab7mp")
 texture_hover = ExtResource("6_osxpj")
 

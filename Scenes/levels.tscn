@@ -295,6 +295,7 @@ offset_left = 4.0
 offset_top = 105.0
 offset_right = 44.0
 offset_bottom = 145.0
+focus_mode = 0
 texture_normal = ExtResource("14_vl44r")
 
 [node name="Ball" type="TextureButton" parent="CanvasLayer"]
@@ -303,6 +304,7 @@ offset_left = 4.0
 offset_top = 145.0
 offset_right = 44.0
 offset_bottom = 185.0
+focus_mode = 0
 texture_normal = ExtResource("15_fr0th")
 
 [node name="Plank" type="TextureButton" parent="CanvasLayer"]
@@ -311,13 +313,16 @@ offset_left = 4.0
 offset_top = 185.0
 offset_right = 44.0
 offset_bottom = 225.0
+focus_mode = 0
 texture_normal = ExtResource("16_8qr2s")
 
 [node name="Reset" type="TextureButton" parent="CanvasLayer"]
+visible = false
 offset_left = 4.0
 offset_top = 225.0
 offset_right = 44.0
 offset_bottom = 265.0
+focus_mode = 0
 texture_normal = ExtResource("17_gjtb4")
 
 [node name="Blink" type="AnimatedSprite2D" parent="CanvasLayer"]
@@ -327,4 +332,6 @@ animation = &"Blink-Close"
 
 [connection signal="area_exited" from="LevelCamera/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="button_down" from="CanvasLayer/Block" to="." method="_on_box_button_down"]
+[connection signal="button_down" from="CanvasLayer/Ball" to="." method="_on_ball_button_down"]
+[connection signal="button_down" from="CanvasLayer/Plank" to="." method="_on_plank_button_down"]
 [connection signal="button_down" from="CanvasLayer/Reset" to="." method="_on_reset_button_down"]

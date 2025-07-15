@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b04vgfcwqrhtm"]
+
+[ext_resource type="Texture2D" uid="uid://wycfqv3gccm5" path="res://Assets/Units/Plank.png" id="1_uves6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_61tmj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11eae"]
+radius = 8.0
+height = 130.0
+
+[node name="plank" type="RigidBody2D" groups=["Objects"]]
+physics_material_override = SubResource("PhysicsMaterial_61tmj")
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uves6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_11eae")
