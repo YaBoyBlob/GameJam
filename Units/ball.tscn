@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://clxuqm6p0wjq5"]
+[gd_scene load_steps=3 format=3 uid="uid://clxuqm6p0wjq5"]
 
 [ext_resource type="Texture2D" uid="uid://ci5bcexq4x2ht" path="res://Assets/Units/Ball.png" id="1_cdu3c"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_61tmj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_363ml"]
 radius = 32.0156
 
 [node name="Ball" type="RigidBody2D" groups=["Objects"]]
-physics_material_override = SubResource("PhysicsMaterial_61tmj")
-can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cdu3c")

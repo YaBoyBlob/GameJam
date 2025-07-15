@@ -20,17 +20,18 @@ func _ready():
 
 
 func _on_area_2d_area_exited(area): #switch new level
-	if level > 0:
-		level_camera.global_position.x += 640
-	level +=1
-	match level:
-		2:
-			block.show()
-			reset.show()
-	
-	for nodes in get_tree().get_nodes_in_group("Objects"):
-		nodes.queue_free()
-	objects = 0
+	if area.get_parent() == player:
+		if level > 0:
+			level_camera.global_position.x += 640
+		level +=1
+		match level:
+			2:
+				block.show()
+				reset.show()
+		
+		for nodes in get_tree().get_nodes_in_group("Objects"):
+			nodes.queue_free()
+		objects = 0
 
 func _on_reset_button_down(): #reset everything
 	player.global_position = level_camera.global_position - Vector2(240,0)

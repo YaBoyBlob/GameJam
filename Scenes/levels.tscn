@@ -1,7 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://c313gchwqrufe"]
+[gd_scene load_steps=34 format=3 uid="uid://c313gchwqrufe"]
 
 [ext_resource type="Script" path="res://Scenes/levels.gd" id="1_idf3a"]
-[ext_resource type="Texture2D" uid="uid://bwf622ag1r58g" path="res://Assets/Stages/Lvl_1.png" id="2_7rq0f"]
 [ext_resource type="Texture2D" uid="uid://p7b1bowf1r3c" path="res://Assets/Units/Placeholder_Texture.png" id="3_u375n"]
 [ext_resource type="Texture2D" uid="uid://b4gw2tkoyubip" path="res://Assets/Units/Block.png" id="4_0w4fm"]
 [ext_resource type="Texture2D" uid="uid://bpk0j4onkrtgn" path="res://Assets/UIs/Tip1.png" id="5_wqq1p"]
@@ -234,13 +233,6 @@ animations = [{
 [node name="Levels" type="Node2D"]
 script = ExtResource("1_idf3a")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Stage" type="Sprite2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(320, 180)
-texture = ExtResource("2_7rq0f")
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8fdc0")
 format = 2
@@ -290,7 +282,6 @@ position = Vector2(320, 181)
 texture = ExtResource("13_kfhfm")
 
 [node name="Block" type="TextureButton" parent="CanvasLayer"]
-visible = false
 offset_left = 4.0
 offset_top = 105.0
 offset_right = 44.0
@@ -299,7 +290,6 @@ focus_mode = 0
 texture_normal = ExtResource("14_vl44r")
 
 [node name="Ball" type="TextureButton" parent="CanvasLayer"]
-visible = false
 offset_left = 4.0
 offset_top = 145.0
 offset_right = 44.0
@@ -308,7 +298,6 @@ focus_mode = 0
 texture_normal = ExtResource("15_fr0th")
 
 [node name="Plank" type="TextureButton" parent="CanvasLayer"]
-visible = false
 offset_left = 4.0
 offset_top = 185.0
 offset_right = 44.0
@@ -317,7 +306,6 @@ focus_mode = 0
 texture_normal = ExtResource("16_8qr2s")
 
 [node name="Reset" type="TextureButton" parent="CanvasLayer"]
-visible = false
 offset_left = 4.0
 offset_top = 225.0
 offset_right = 44.0

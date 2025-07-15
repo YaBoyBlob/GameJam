@@ -182,7 +182,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbims"]
-size = Vector2(0, 20)
+size = Vector2(17, 48.25)
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_3b8rr")
@@ -199,4 +199,6 @@ frame_progress = 1.0
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_qbims")
+debug_color = Color(0.953976, 0, 0.550809, 0.42)
