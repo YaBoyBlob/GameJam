@@ -7,6 +7,8 @@ radius = 8.0
 height = 130.0
 
 [node name="plank" type="RigidBody2D" groups=["Objects"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uves6")

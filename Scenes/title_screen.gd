@@ -16,7 +16,7 @@ func _ready():
 	screen_animations.play("BlackSceen")
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 
