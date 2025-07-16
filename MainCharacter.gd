@@ -8,7 +8,6 @@ var direction = 1
 var prev_direction = 1
 func _physics_process(delta):
 	animation_handler()
-	
 	if !is_on_floor():
 		velocity.y += delta * 1000
 	if is_on_floor():

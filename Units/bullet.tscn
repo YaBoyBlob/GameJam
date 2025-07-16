@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl3w1m8sj4swj"]
+
+[ext_resource type="Script" path="res://Units/bullet.gd" id="1_fbugd"]
+[ext_resource type="Texture2D" uid="uid://2oivov37tj3" path="res://Assets/Units/Enemy_Small_Projectile.png" id="1_oinwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4gqq"]
+size = Vector2(8, 8)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_fbugd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oinwt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_t4gqq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

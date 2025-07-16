@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04vgfcwqrhtm"]
+[gd_scene load_steps=4 format=3 uid="uid://b04vgfcwqrhtm"]
 
+[ext_resource type="Script" path="res://BlockStuff.gd" id="1_1pxi8"]
 [ext_resource type="Texture2D" uid="uid://wycfqv3gccm5" path="res://Assets/Units/Plank.png" id="1_uves6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11eae"]
@@ -9,6 +10,7 @@ height = 130.0
 [node name="plank" type="RigidBody2D" groups=["Objects"]]
 collision_layer = 3
 collision_mask = 3
+script = ExtResource("1_1pxi8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uves6")

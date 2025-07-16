@@ -8,7 +8,8 @@ extends Node2D
 @onready var plank = $CanvasLayer/Plank
 @onready var reset = $CanvasLayer/Reset
 
- 
+
+
 var objects = 0
 var level = 1
 var box = preload("res://Units/block.tscn")
@@ -34,14 +35,15 @@ func _on_area_2d_area_exited(area): #switch new level
 		for nodes in get_tree().get_nodes_in_group("Objects"):
 			nodes.queue_free()
 		objects = 0
-
+	
 func _on_reset_button_down(): #reset everything
+	reset_level()
+func reset_level():
 	player.global_position = level_camera.global_position - Vector2(240,0)
 	player.velocity = Vector2.ZERO
 	for nodes in get_tree().get_nodes_in_group("Objects"):
 		nodes.queue_free()
 	objects = 0
-	
 func _on_box_button_down(): #spawn blocks
 	if objects <3:
 		var instance = box.instantiate()
@@ -64,3 +66,8 @@ func _on_plank_button_down(): #spawn planks
 		add_child(instance)
 		instance.position = player.global_position + Vector2(50 * player.prev_direction , 0)
 		objects += 1
+
+
+func _on_area_2d_area_entered(area):
+	if area.get_parent().is_in_group("Enemy"):
+		area.get_parent().active = true

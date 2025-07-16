@@ -185,7 +185,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbims"]
 size = Vector2(17, 48.25)
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 script = ExtResource("1_3b8rr")
 
