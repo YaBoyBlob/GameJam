@@ -1,5 +1,4 @@
 extends Node2D
-signal hit
 var life_time = 1.5
 var speed = 500
 var direction = 1

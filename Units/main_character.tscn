@@ -183,10 +183,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbims"]
-size = Vector2(17, 48.25)
+size = Vector2(24, 66)
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
+floor_block_on_wall = false
 script = ExtResource("1_3b8rr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -203,7 +204,12 @@ collision_layer = 3
 script = ExtResource("5_l8e6l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 14)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_qbims")
 one_way_collision_margin = 10.0
 debug_color = Color(0.953976, 0, 0.550809, 0.42)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(17, 0)
+
+[connection signal="entered" from="Hitbox" to="." method="_on_hitbox_entered"]

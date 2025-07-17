@@ -1,12 +1,19 @@
 extends CharacterBody2D
 class_name PLAYER
 
-const SPEED = 200
+const SPEED = 180
 const JUMP_VELOCITY = -350
+const PUSH_FORCE = 1.5
+
+var is_pushing = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var hitbox = $Hitbox
+@onready var ray_cast_2d = $RayCast2D
+
 var direction = 1
 var prev_direction = 1
 func _physics_process(delta):
+	is_pushing = false
 	animation_handler()
 	if !is_on_floor():
 		velocity.y += delta * 1000
@@ -27,8 +34,27 @@ func _physics_process(delta):
 	elif direction > 0 :
 		animated_sprite_2d.flip_h = false #look right
 	
+	push_objects()
+
 	move_and_slide()
 
+func push_objects():
+	#for body in hitbox.get_overlapping_bodies():
+	#	if body is RigidBody2D:
+			var lastCollision = get_last_slide_collision()
+			
+			if lastCollision:
+				var collider = lastCollision.get_collider()
+				
+				if collider and collider.is_in_group("Objects"):
+					var push_direction = (collider.global_position - global_position).normalized()
+					
+					var pushOnSide = abs(push_direction.y) < 0.5
+					
+					if pushOnSide:
+						is_pushing=true
+						var PushVelocity = Vector2(PUSH_FORCE * push_direction)
+						collider.linear_velocity += PushVelocity
 
 func animation_handler():
 	if is_on_floor():
@@ -39,6 +65,8 @@ func animation_handler():
 			animated_sprite_2d.play("Run")
 			
 	
+
+
 
 
 

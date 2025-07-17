@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b04vgfcwqrhtm"]
+[gd_scene load_steps=3 format=3 uid="uid://b04vgfcwqrhtm"]
 
-[ext_resource type="Script" path="res://BlockStuff.gd" id="1_1pxi8"]
 [ext_resource type="Texture2D" uid="uid://wycfqv3gccm5" path="res://Assets/Units/Plank.png" id="1_uves6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11eae"]
-radius = 8.0
-height = 130.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv0c3"]
+size = Vector2(16, 160)
 
 [node name="plank" type="RigidBody2D" groups=["Objects"]]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_1pxi8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uves6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_11eae")
+shape = SubResource("RectangleShape2D_fv0c3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fv0c3")

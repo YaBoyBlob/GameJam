@@ -3,12 +3,15 @@ extends CharacterBody2D
 @onready var floor_ray = $FloorRay
 @onready var wall_ray = $WallRay
 @onready var timer = $Timer
-
+var spawn_pos 
 const SPEED = 150.0
 var active = false
 var direction = 1
 var bullet = preload("res://Units/bullet.tscn")
 
+func _ready():
+	spawn_pos = self.global_position
+	flip()
 func _physics_process(delta):
 	if active:
 		if timer.time_left == 0.0:
@@ -37,3 +40,11 @@ func _on_timer_timeout():
 	fire()
 	timer.start()
 
+
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.get_parent().is_in_group("Player"):
+		var level = get_tree().current_scene
+		level.reset_level()

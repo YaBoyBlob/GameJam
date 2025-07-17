@@ -19,10 +19,17 @@ var circle = preload("res://Units/ball.tscn")
 func _ready():
 	blink.play("Blink-Open")
 
-
-
+func _physics_process(delta):
+	if player.global_position.y > 400:
+		reset_level()
+	for nodes in get_tree().get_nodes_in_group("Objects"):
+		if nodes.global_position.y > 400:
+			nodes.queue_free()
+			objects -=1
 
 func _on_area_2d_area_exited(area): #switch new level
+	if area.get_parent().is_in_group("Enemy"):
+		area.get_parent().active = false
 	if area.get_parent() == player:
 		if level > 0:
 			level_camera.global_position.x += 640
@@ -31,7 +38,10 @@ func _on_area_2d_area_exited(area): #switch new level
 			2:
 				block.show()
 				reset.show()
-		
+			3:
+				ball.show()
+			4:
+				plank.show()
 		for nodes in get_tree().get_nodes_in_group("Objects"):
 			nodes.queue_free()
 		objects = 0
@@ -39,11 +49,19 @@ func _on_area_2d_area_exited(area): #switch new level
 func _on_reset_button_down(): #reset everything
 	reset_level()
 func reset_level():
-	player.global_position = level_camera.global_position - Vector2(240,0)
+	player.global_position = level_camera.global_position - Vector2(240,-180)
 	player.velocity = Vector2.ZERO
 	for nodes in get_tree().get_nodes_in_group("Objects"):
 		nodes.queue_free()
 	objects = 0
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.global_position = enemy.spawn_pos
+		if enemy.direction == 1:
+			enemy.flip()
+			enemy.timer.stop()
+			enemy.timer.start()
+	for bullet in get_tree().get_nodes_in_group("Projectile"):
+		bullet.queue_free()
 func _on_box_button_down(): #spawn blocks
 	if objects <3:
 		var instance = box.instantiate()
@@ -70,4 +88,5 @@ func _on_plank_button_down(): #spawn planks
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("Enemy"):
-		area.get_parent().active = true
+		if area.get_parent().global_position.x >= self.global_position.x - 320:
+			area.get_parent().active = true
