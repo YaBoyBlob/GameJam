@@ -19,5 +19,4 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("Enemy") and moving:
-		area.get_parent().global_position.y += 700
-		area.get_parent().active = false
+		area.get_parent().queue_free()

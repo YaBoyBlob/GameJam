@@ -1,0 +1,271 @@
+[gd_scene load_steps=29 format=3 uid="uid://dxoci03beoirh"]
+
+[ext_resource type="Script" path="res://Scenes/levels.gd" id="1_fb8hf"]
+[ext_resource type="Texture2D" uid="uid://caww4i66hpl8h" path="res://Assets/StartingStuff/DesktopBG_copy.png" id="2_pcmj4"]
+[ext_resource type="Texture2D" uid="uid://p7b1bowf1r3c" path="res://Assets/Units/Placeholder_Texture.png" id="3_h6ugr"]
+[ext_resource type="Texture2D" uid="uid://dscqd8naf3cch" path="res://Assets/UIs/Toolbar.png" id="5_7k1tf"]
+[ext_resource type="Texture2D" uid="uid://nn6ur3mwwt34" path="res://Assets/UIs/Button_Block.png" id="6_1wc1e"]
+[ext_resource type="Texture2D" uid="uid://dttq3hm2p6vyt" path="res://Assets/UIs/Button_Ball.png" id="7_86gti"]
+[ext_resource type="Texture2D" uid="uid://c6xyv56aqipl4" path="res://Assets/UIs/Button_Plank.png" id="8_7wbry"]
+[ext_resource type="Texture2D" uid="uid://bgxj2ldw7pksi" path="res://Assets/StartingStuff/Booting_Screen.png" id="9_3abrd"]
+[ext_resource type="Texture2D" uid="uid://cd0turrrxqbo2" path="res://Assets/UIs/Button_Reset.png" id="9_7astw"]
+[ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="10_aycou"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74qrq"]
+texture = ExtResource("3_h6ugr")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_sgf4s"]
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
+sources/1 = SubResource("TileSetAtlasSource_74qrq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s4a8"]
+atlas = ExtResource("9_3abrd")
+region = Rect2(400, 0, 400, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1idqe"]
+atlas = ExtResource("10_aycou")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd2rv"]
+atlas = ExtResource("10_aycou")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45hq4"]
+atlas = ExtResource("10_aycou")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_345fv"]
+atlas = ExtResource("10_aycou")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu5fy"]
+atlas = ExtResource("10_aycou")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kl0h"]
+atlas = ExtResource("10_aycou")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88763"]
+atlas = ExtResource("10_aycou")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6pe5"]
+atlas = ExtResource("10_aycou")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4ph"]
+atlas = ExtResource("10_aycou")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s2gn"]
+atlas = ExtResource("10_aycou")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihsly"]
+atlas = ExtResource("10_aycou")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp14m"]
+atlas = ExtResource("10_aycou")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr3br"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s4a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1idqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd2rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45hq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_345fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kl0h")
+}],
+"loop": false,
+"name": &"Blink-Close",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88763")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6pe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s4ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s2gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihsly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp14m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s4a8")
+}],
+"loop": false,
+"name": &"Blink-Open",
+"speed": 12.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_merd5"]
+a = Vector2(0, 360)
+b = Vector2(-1.22392e-05, -280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvlcn"]
+size = Vector2(640, 488)
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_fb8hf")
+
+[node name="DesktopBgCopy" type="Sprite2D" parent="."]
+position = Vector2(321, 181)
+texture = ExtResource("2_pcmj4")
+
+[node name="LvlBluePrint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sgf4s")
+format = 2
+layer_0/name = "Terrain"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToolBox" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(320, 181)
+texture = ExtResource("5_7k1tf")
+
+[node name="Block" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 4.0
+offset_top = 105.0
+offset_right = 44.0
+offset_bottom = 145.0
+focus_mode = 0
+texture_normal = ExtResource("6_1wc1e")
+
+[node name="Ball" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 4.0
+offset_top = 145.0
+offset_right = 44.0
+offset_bottom = 185.0
+focus_mode = 0
+texture_normal = ExtResource("7_86gti")
+
+[node name="Plank" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 4.0
+offset_top = 185.0
+offset_right = 44.0
+offset_bottom = 225.0
+focus_mode = 0
+texture_normal = ExtResource("8_7wbry")
+
+[node name="Reset" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 4.0
+offset_top = 225.0
+offset_right = 44.0
+offset_bottom = 265.0
+focus_mode = 0
+texture_normal = ExtResource("9_7astw")
+
+[node name="Blink" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(320, 180)
+sprite_frames = SubResource("SpriteFrames_yr3br")
+animation = &"Blink-Close"
+
+[node name="LevelCamera" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelCamera"]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCamera/StaticBody2D"]
+position = Vector2(-320, -184)
+shape = SubResource("SegmentShape2D_merd5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCamera/StaticBody2D"]
+position = Vector2(40, -174)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_merd5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="LevelCamera"]
+position = Vector2(0, -6)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCamera/StaticBody2D2"]
+position = Vector2(320, -184)
+shape = SubResource("SegmentShape2D_merd5")
+
+[node name="Area2D" type="Area2D" parent="LevelCamera"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCamera/Area2D"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_fvlcn")
+
+[connection signal="button_down" from="CanvasLayer/Block" to="." method="_on_box_button_down"]
+[connection signal="button_down" from="CanvasLayer/Ball" to="." method="_on_ball_button_down"]
+[connection signal="button_down" from="CanvasLayer/Plank" to="." method="_on_plank_button_down"]
+[connection signal="button_down" from="CanvasLayer/Reset" to="." method="_on_reset_button_down"]
+[connection signal="area_entered" from="LevelCamera/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="LevelCamera/Area2D" to="." method="_on_area_2d_area_exited"]

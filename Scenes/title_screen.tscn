@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8pbclkmufkt" path="res://Assets/StartingStuff/Menu_Exit.png" id="5_ab7mp"]
 [ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/StartingStuff/Menu_Start.png" id="5_ii03c"]
 [ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="6_dymbg"]
-[ext_resource type="Texture2D" uid="uid://dlsjewxvp88a" path="res://Assets/StartingStuff/Menu_Exit_Broken.png" id="6_osxpj"]
+[ext_resource type="Texture2D" uid="uid://kkrgvf5fqe35" path="res://Assets/StartingStuff/Menu_Exit-Black.png" id="8_vutoi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nory4"]
 atlas = ExtResource("2_4hnip")
@@ -255,7 +255,7 @@ offset_right = 426.0
 offset_bottom = 197.0
 focus_mode = 0
 texture_normal = ExtResource("5_ab7mp")
-texture_hover = ExtResource("6_osxpj")
+texture_hover = ExtResource("8_vutoi")
 
 [node name="Blink" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 180)

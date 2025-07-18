@@ -3,7 +3,7 @@ class_name PLAYER
 
 const SPEED = 180
 const JUMP_VELOCITY = -350
-const PUSH_FORCE = 1.5
+const PUSH_FORCE = 3.0
 
 var is_pushing = false
 @onready var animated_sprite_2d = $AnimatedSprite2D

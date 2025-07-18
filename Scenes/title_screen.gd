@@ -32,7 +32,7 @@ func _on_title_screen_sprite_animation_finished():
 
 
 func _on_blink_animation_finished():
-	get_tree().change_scene_to_file("res://Scenes/levels.tscn")
+	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
 
 func _on_exit_button_button_down():
 	get_tree().quit()

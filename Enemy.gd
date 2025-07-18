@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var timer = $Timer
 var spawn_pos 
 const SPEED = 150.0
-var active = false
 var direction = 1
 var bullet = preload("res://Units/bullet.tscn")
 
@@ -13,7 +12,6 @@ func _ready():
 	spawn_pos = self.global_position
 	flip()
 func _physics_process(delta):
-	if active:
 		if timer.time_left == 0.0:
 			timer.start()
 		if not is_on_floor():
