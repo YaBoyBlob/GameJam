@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://fe1jdadi4qdh"]
+[gd_scene load_steps=38 format=3 uid="uid://fe1jdadi4qdh"]
 
 [ext_resource type="Texture2D" uid="uid://buplprrgex87p" path="res://Assets/StartingStuff/Starting_Scene.png" id="1_6p1lm"]
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_o31ak"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/StartingStuff/Menu_Start.png" id="5_ii03c"]
 [ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="6_dymbg"]
 [ext_resource type="Texture2D" uid="uid://dlsjewxvp88a" path="res://Assets/StartingStuff/Menu_Exit_Broken.png" id="6_osxpj"]
+[ext_resource type="AudioStream" uid="uid://fu6d2hpli25n" path="res://Audio/select.mp3" id="10_wsgqe"]
+[ext_resource type="AudioStream" uid="uid://deq8qkmbt0hrh" path="res://Audio/Confirm.mp3" id="11_0rprh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nory4"]
 atlas = ExtResource("2_4hnip")
@@ -262,7 +264,18 @@ position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_rxk6r")
 animation = &"Blink-Close"
 
+[node name="HoverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wsgqe")
+volume_db = -15.0
+bus = &"sfx"
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_0rprh")
+volume_db = -15.0
+bus = &"sfx"
+
 [connection signal="animation_finished" from="TitleScreenSprite" to="." method="_on_title_screen_sprite_animation_finished"]
 [connection signal="button_down" from="UIs/StartButton" to="." method="_on_start_button_button_down"]
-[connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_up"]
+[connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="mouse_entered" from="UIs/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="animation_finished" from="Blink" to="." method="_on_blink_animation_finished"]

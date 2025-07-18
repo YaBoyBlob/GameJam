@@ -54,6 +54,7 @@ func _on_box_button_down(): #spawn blocks
 
 func _on_ball_button_down(): #spawn ball
 	if objects <3:
+		$AudioManager/ButtonAudio.play()
 		var instance = circle.instantiate()
 		add_child(instance)
 		instance.position = player.global_position + Vector2(50 * player.prev_direction , 0)

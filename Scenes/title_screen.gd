@@ -37,8 +37,13 @@ func _on_blink_animation_finished():
 func _on_exit_button_button_down():
 	get_tree().quit()
 
-
 func _on_start_button_button_down():
 	if !blink.is_playing(): #Prevent it playing again during the animation
+		$ClickAudio.play()
 		blink.play("Blink-Close")
 	
+
+
+func _on_exit_button_mouse_entered():
+	if !$HoverAudio.playing:
+		$HoverAudio.play()
