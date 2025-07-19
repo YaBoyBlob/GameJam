@@ -264,5 +264,6 @@ animation = &"Blink-Close"
 
 [connection signal="animation_finished" from="TitleScreenSprite" to="." method="_on_title_screen_sprite_animation_finished"]
 [connection signal="button_down" from="UIs/StartButton" to="." method="_on_start_button_button_down"]
-[connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_up"]
+[connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="mouse_entered" from="UIs/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="animation_finished" from="Blink" to="." method="_on_blink_animation_finished"]

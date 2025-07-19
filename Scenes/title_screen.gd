@@ -29,6 +29,7 @@ func _on_title_screen_sprite_animation_finished():
 	await get_tree().create_timer(3.0).timeout #waits 3 second then switch to home screen
 	UI.show()
 	screen_animations.play("HomeSreen")
+	Music.play()
 
 
 func _on_blink_animation_finished():
@@ -40,5 +41,10 @@ func _on_exit_button_button_down():
 
 func _on_start_button_button_down():
 	if !blink.is_playing(): #Prevent it playing again during the animation
+		Confirm.play()
 		blink.play("Blink-Close")
-	
+
+
+func _on_exit_button_mouse_entered():
+	if !Select.playing:
+		Select.play()

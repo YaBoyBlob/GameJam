@@ -15,6 +15,16 @@ run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Audio/default_bus_layout.tres"
+
+[autoload]
+
+Music="*res://Music.tscn"
+Select="*res://select.tscn"
+Confirm="*res://Confirm.tscn"
+
 [display]
 
 window/size/viewport_width=640
