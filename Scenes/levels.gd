@@ -16,6 +16,7 @@ var objects = 0
 var box = preload("res://Units/block.tscn")
 var bar = preload("res://Units/plank.tscn")
 var circle = preload("res://Units/ball.tscn")
+var music = preload("res://Audio/MusicSample.mp3")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if level == 1:
@@ -37,6 +38,7 @@ func _on_area_2d_area_exited(area): #switch new level
 
 	
 func _on_reset_button_down(): #reset everything
+	Select.play()
 	reset_level()
 func reset_level():
 	get_tree().reload_current_scene()
@@ -56,6 +58,7 @@ func reset_level():
 	#	bullet.queue_free()
 func _on_box_button_down(): #spawn blocks
 	if objects <3:
+		Select.play()
 		var instance = box.instantiate()
 		add_child(instance)
 		instance.position = player.global_position + Vector2(50 * player.prev_direction , 0)
@@ -64,6 +67,7 @@ func _on_box_button_down(): #spawn blocks
 
 func _on_ball_button_down(): #spawn ball
 	if objects <3:
+		Select.play()
 		var instance = circle.instantiate()
 		add_child(instance)
 		instance.position = player.global_position + Vector2(50 * player.prev_direction , 0)
@@ -72,6 +76,7 @@ func _on_ball_button_down(): #spawn ball
 
 func _on_plank_button_down(): #spawn planks
 	if objects <3:
+		Select.play()
 		var instance = bar.instantiate()
 		add_child(instance)
 		instance.position = player.global_position + Vector2(100 * player.prev_direction , 0)

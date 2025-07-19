@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yubcjs7umuaa"]
+
+[ext_resource type="AudioStream" uid="uid://rec0q0llpem8" path="res://Audio/Confirm.mp3" id="1_myc7y"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_myc7y")
+bus = &"Sfx"
