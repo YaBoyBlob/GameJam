@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 Music="*res://Music.tscn"
 Select="*res://select.tscn"
 Confirm="*res://Confirm.tscn"
+GameManager="*res://Scenes/GameManager.gd"
 
 [display]
 

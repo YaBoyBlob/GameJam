@@ -11,6 +11,11 @@ var bullet = preload("res://Units/bullet.tscn")
 func _ready():
 	spawn_pos = self.global_position
 	flip()
+	if !GameManager.is_alive:
+		set_physics_process(false)
+		await get_tree().create_timer(1.0).timeout
+		set_physics_process(true)
+
 func _physics_process(delta):
 		if timer.time_left == 0.0:
 			timer.start()

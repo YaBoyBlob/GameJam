@@ -1,15 +1,52 @@
 extends RigidBody2D
 
+@onready var sprite_2d = $Sprite2D
+
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	var velocity = state.linear_velocity
+	
+	# Optional: stabilize tiny values
+	if abs(velocity.x) < 1:
+		velocity.x = 0
+	
+	# Slight horizontal drag
+	velocity.x *= 0.98
+	
+	state.linear_velocity = velocity
+	state.angular_velocity = 0.0
+func _ready():
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
+	freeze = true  # this prevents it from reacting to physics
+	await get_tree().create_timer(0.01).timeout  # wait 1 second
+	unfreeze()
+
+func unfreeze():
+	freeze = false
+	linear_velocity = Vector2.ZERO  # Prevent weird leftover movement
+
+func vanish():
+	collision_layer = 0
+	collision_mask = 0
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	freeze = true
+	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
+
+	$AnimationPlayer.play("Vanish")
+func exit():
+	var level = get_tree().current_scene
+	level.objects -=1
+	queue_free()
+	
+func _on_body_entered(body):
+	if body.is_in_group("Wall"):
+		vanish()
+		
 
 
-func _ready() -> void: #used to catch the signals from the player hitbox
-	get_parent().player.get_node("Hitbox").entered.connect(solid)
-	get_parent().player.get_node("Hitbox").exited.connect(liquid)
-
-func solid() -> void: # makes the block solid
-	self.collision_layer = 1
-	self.collision_mask = 3
-
-func liquid() -> void: #removes the blocks collision, but lets it be pushed
-	self.collision_layer = 2
-	self.collision_mask = 2
+func _on_hitbox_2_area_entered(area):
+	if area.get_parent().is_in_group("Boss"):
+		area.get_parent().hit()
+		vanish()

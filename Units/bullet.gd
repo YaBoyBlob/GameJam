@@ -20,3 +20,4 @@ func _on_area_2d_area_entered(area):
 		queue_free()
 	if area.get_parent().is_in_group("Objects"):
 		queue_free()
+		

@@ -10,7 +10,6 @@
 level = 9
 
 [node name="LvlBluePrint" parent="." index="1"]
-visible = true
 texture = ExtResource("2_tgm0r")
 
 [node name="TileMap" parent="." index="2"]

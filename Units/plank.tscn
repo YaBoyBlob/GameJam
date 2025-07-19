@@ -1,13 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04vgfcwqrhtm"]
+[gd_scene load_steps=7 format=3 uid="uid://b04vgfcwqrhtm"]
 
+[ext_resource type="Script" path="res://Units/plank.gd" id="1_8bjpg"]
 [ext_resource type="Texture2D" uid="uid://wycfqv3gccm5" path="res://Assets/Units/Plank.png" id="1_uves6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv0c3"]
 size = Vector2(16, 160)
 
+[sub_resource type="Animation" id="Animation_b40f3"]
+resource_name = "Vanish"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"exit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbkps"]
+_data = {
+"Vanish": SubResource("Animation_b40f3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nctfj"]
+size = Vector2(144, 4)
+
 [node name="plank" type="RigidBody2D" groups=["Objects"]]
 collision_layer = 3
 collision_mask = 3
+script = ExtResource("1_8bjpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uves6")
@@ -21,3 +61,17 @@ shape = SubResource("RectangleShape2D_fv0c3")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_fv0c3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nbkps")
+}
+
+[node name="CollisonDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisonDetector"]
+shape = SubResource("RectangleShape2D_nctfj")
+debug_color = Color(0.922802, 5.23663e-05, 0.686162, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="CollisonDetector" to="." method="_on_body_entered"]
