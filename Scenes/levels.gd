@@ -33,7 +33,9 @@ func _physics_process(delta):
 	if player.global_position.y > 400:
 		GameManager.is_alive = false
 		get_tree().reload_current_scene()
-	
+	if Input.is_action_just_pressed("Pause"): 
+		get_tree().paused = true
+
 
 func _on_area_2d_area_exited(area): #switch new level
 	if area.get_parent() == player and !GameManager.is_resetting:
