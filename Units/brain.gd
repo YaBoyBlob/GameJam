@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+
 @onready var attack_timer = $AttackTimer
 @onready var stagger_timer = $StaggerTimer
 @onready var animation_player = $AnimationPlayer
@@ -49,7 +49,6 @@ func _physics_process(delta):
 	# If idle and nothing queued, schedule next regular attack
 	if !is_attacking and attack_queue.is_empty() and attack_timer.is_stopped():
 		attack_interval = randf_range(2, 3.5)
-		print(attack_interval)
 		attack_timer.start(attack_interval)
 
 	# Play Idle animation if doing nothing
@@ -81,7 +80,7 @@ func start_attack(attack_type):
 			tween.tween_property(barrier, "modulate", Color(1, 1, 1, 1), 0.25)# yellow
 			animation_player.play("Throw")
 		state.Vein:
-			barrier.modulate =Color(0.5, 0, 0.5, 1)
+			barrier.modulate =Color(0, 0, 1, 1)
 			tween.tween_property(barrier, "modulate", Color(1, 1, 1, 1), 0.25)# purple
 			animation_player.play("Vein")
 
@@ -108,16 +107,15 @@ func vein_attack():
 	instance.animated_sprite_2d.play("Float")
 	instance.global_position = throw_pos.global_position
 
-func _on_animated_sprite_2d_animation_finished():
-	is_attacking = false
+
 
 func _on_animation_player_animation_finished(anim_name):
 	is_attacking = false
 
 func _on_area_2d_area_entered(area):
-	if area.get_parent().is_in_group("Player"):
+	if area.get_parent().is_in_group("Player") and hp > 0:
 		var level = get_tree().current_scene
-		level.reset_level()
+		area.get_parent().hit(3)
 
 func hit():
 	if barrier_active:
@@ -132,8 +130,18 @@ func hit():
 		1:
 			health_bar.play("Empty")
 	if hp == 0:
-		queue_free()
-	recover()
+		health_bar.hide()
+		GameManager.play_custom_audio(GameManager.BOSS_DEFEAT, GameManager.SUB_DEFEAT)
+		animation_player.play("Dead")
+		$Area2D/CollisionShape2D.disabled = true
+		GameManager.finished = true
+		var level = get_tree().current_scene
+		await get_tree().create_timer(17).timeout
+		level.blink.play("Blink-Close")
+		await get_tree().create_timer(1,0).timeout
+		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
+	if hp > 0:
+		recover()
 func flash_barrier(duration := 0.1):
 	var tween = create_tween()
 	tween.tween_property(barrier,"modulate:v",1,0.25).from(15)
@@ -148,9 +156,11 @@ func stagger():
 	animation_player.play("Stagger")
 	
 func recover():
-	animation_player.play("Recover")
-	barrier_active = true
-	barrier.show()
+	if hp > 0:
+		animation_player.play("Recover")
+		barrier_active = true
+		barrier.show()
 
 func return_normal():
-	set_physics_process(true)
+	if hp > 0:
+		set_physics_process(true)

@@ -34,7 +34,7 @@ func flip():
 func fire():
 	var instance = bullet.instantiate()
 	add_child(instance)
-	instance.global_position = self.global_position
+	instance.global_position = self.global_position + Vector2(0,-8)
 	instance.direction = self.direction
 	
 
@@ -50,4 +50,4 @@ func _on_timer_timeout():
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		var level = get_tree().current_scene
-		level.reset_level()
+		area.get_parent().hit(1)

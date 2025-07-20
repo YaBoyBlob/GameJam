@@ -62,13 +62,13 @@ func activate_hit():
 func _on_hitbox_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		var level = get_tree().current_scene
-		level.reset_level()
+		area.get_parent().hit(1)
 	if area.get_parent().is_in_group("Objects"):
 		area.get_parent().vanish()
 
 func _on_vein_hitbox_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		var level = get_tree().current_scene
-		level.reset_level()
+		area.get_parent().hit(2)
 	if area.get_parent().is_in_group("Objects"):
 		area.get_parent().vanish()

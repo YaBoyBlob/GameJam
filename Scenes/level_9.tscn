@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw8dnd2yyf5jj"]
+[gd_scene load_steps=7 format=3 uid="uid://bw8dnd2yyf5jj"]
 
 [ext_resource type="PackedScene" uid="uid://dxoci03beoirh" path="res://Scenes/level_template.tscn" id="1_tfh5h"]
 [ext_resource type="Texture2D" uid="uid://dmniacjiuoyic" path="res://Assets/Stages/Level_Boss.png" id="2_tgm0r"]
+[ext_resource type="Texture2D" uid="uid://bamu3bjfnwxje" path="res://Assets/StartingStuff/CorruptDesktop_BG.png" id="2_tx358"]
 [ext_resource type="PackedScene" uid="uid://7w0aigtov2ae" path="res://Units/main_character.tscn" id="3_dviam"]
 [ext_resource type="PackedScene" uid="uid://dry1vljsg1cee" path="res://Units/enemy.tscn" id="4_lv1bv"]
 [ext_resource type="PackedScene" uid="uid://c1t4xb7gdb2m6" path="res://Units/brain.tscn" id="5_dl7ix"]
 
 [node name="Level9" instance=ExtResource("1_tfh5h")]
 level = 9
+
+[node name="DesktopBgCopy" parent="." index="0"]
+texture = ExtResource("2_tx358")
 
 [node name="LvlBluePrint" parent="." index="1"]
 texture = ExtResource("2_tgm0r")

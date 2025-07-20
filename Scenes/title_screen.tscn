@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://fe1jdadi4qdh"]
+[gd_scene load_steps=43 format=3 uid="uid://fe1jdadi4qdh"]
 
 [ext_resource type="Texture2D" uid="uid://buplprrgex87p" path="res://Assets/StartingStuff/Starting_Scene.png" id="1_6p1lm"]
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_o31ak"]
@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bp32fh43dnaaq" path="res://Assets/StartingStuff/HomeScreen.png" id="3_8n78m"]
 [ext_resource type="Texture2D" uid="uid://7gl0jqq0jj2b" path="res://Assets/StartingStuff/Credits.png" id="3_65rv8"]
 [ext_resource type="Texture2D" uid="uid://bl8pbclkmufkt" path="res://Assets/StartingStuff/Menu_Exit.png" id="5_ab7mp"]
+[ext_resource type="Texture2D" uid="uid://caww4i66hpl8h" path="res://Assets/StartingStuff/DesktopBG_copy.png" id="5_bhtbg"]
 [ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/StartingStuff/Menu_Start.png" id="5_ii03c"]
 [ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="6_dymbg"]
 [ext_resource type="Texture2D" uid="uid://kkrgvf5fqe35" path="res://Assets/StartingStuff/Menu_Exit-Black.png" id="8_vutoi"]
 [ext_resource type="Texture2D" uid="uid://bfptaegetlkt4" path="res://Assets/UIs/Menu_Options.png" id="9_4v0w5"]
+[ext_resource type="FontFile" uid="uid://dy7vfljitqw46" path="res://Assets/StartingStuff/Letters_Title.png" id="12_xth06"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nory4"]
 atlas = ExtResource("2_4hnip")
@@ -30,6 +32,10 @@ region = Rect2(800, 0, 400, 216)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkphl"]
 atlas = ExtResource("3_8n78m")
 region = Rect2(1200, 0, 400, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb5h8"]
+atlas = ExtResource("5_bhtbg")
+region = Rect2(0, 0, 640, 360)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wp0n"]
 animations = [{
@@ -65,6 +71,14 @@ animations = [{
 "loop": true,
 "name": &"HomeSreen",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb5h8")
+}],
+"loop": true,
+"name": &"NewScreen",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va13r"]
@@ -109,6 +123,12 @@ animations = [{
 "name": &"Start",
 "speed": 10.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ensup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wexax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5trii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2s4a8"]
 atlas = ExtResource("2_4hnip")
@@ -224,7 +244,6 @@ script = ExtResource("1_o31ak")
 position = Vector2(172, 119)
 sprite_frames = SubResource("SpriteFrames_8wp0n")
 animation = &"BlackSceen"
-frame_progress = 1.0
 offset = Vector2(148, 29)
 
 [node name="TitleScreenSprite" type="AnimatedSprite2D" parent="."]
@@ -234,6 +253,41 @@ animation = &"Start"
 frame = 4
 frame_progress = 1.0
 
+[node name="NewTitle" type="LineEdit" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 224.0
+offset_top = 51.0
+offset_right = 416.0
+offset_bottom = 81.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_xth06")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ensup")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wexax")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_5trii")
+placeholder_text = "Enter Title"
+alignment = 1
+max_length = 12
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="ConfirmedTitle" type="Label" parent="."]
+visible = false
+offset_left = 224.0
+offset_top = 55.0
+offset_right = 416.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("12_xth06")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="UIs" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -241,29 +295,29 @@ anchors_preset = 0
 
 [node name="StartButton" type="TextureButton" parent="UIs"]
 layout_mode = 0
-offset_left = 213.0
-offset_top = 133.0
-offset_right = 277.0
-offset_bottom = 197.0
+offset_left = 200.0
+offset_top = 128.0
+offset_right = 264.0
+offset_bottom = 192.0
 focus_mode = 0
 texture_normal = ExtResource("5_ii03c")
 
 [node name="ExitButton" type="TextureButton" parent="UIs"]
 layout_mode = 0
-offset_left = 362.0
-offset_top = 133.0
-offset_right = 426.0
-offset_bottom = 197.0
+offset_left = 376.0
+offset_top = 128.0
+offset_right = 440.0
+offset_bottom = 192.0
 focus_mode = 0
 texture_normal = ExtResource("5_ab7mp")
 texture_hover = ExtResource("8_vutoi")
 
-[node name="TextureButton" type="TextureButton" parent="UIs"]
+[node name="OptionButton" type="TextureButton" parent="UIs"]
 layout_mode = 0
-offset_left = 452.0
-offset_top = 190.0
-offset_right = 516.0
-offset_bottom = 254.0
+offset_left = 288.0
+offset_top = 128.0
+offset_right = 352.0
+offset_bottom = 192.0
 texture_normal = ExtResource("9_4v0w5")
 
 [node name="Blink" type="AnimatedSprite2D" parent="."]
@@ -272,6 +326,7 @@ sprite_frames = SubResource("SpriteFrames_rxk6r")
 animation = &"Blink-Close"
 
 [connection signal="animation_finished" from="TitleScreenSprite" to="." method="_on_title_screen_sprite_animation_finished"]
+[connection signal="text_submitted" from="NewTitle" to="." method="_on_new_title_text_submitted"]
 [connection signal="button_down" from="UIs/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_down"]
 [connection signal="mouse_entered" from="UIs/ExitButton" to="." method="_on_exit_button_mouse_entered"]

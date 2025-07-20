@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://be64vpo0qybk0"]
+
+[ext_resource type="AudioStream" uid="uid://b55x0qvi6xxla" path="res://Audio/Levels/Lvl2.mp3" id="1_lyp1m"]
+
+[node name="NarrationLVL2" type="AudioStreamPlayer"]
+stream = ExtResource("1_lyp1m")

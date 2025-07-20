@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://m65bto2slhsu"]
+[gd_scene load_steps=10 format=3 uid="uid://m65bto2slhsu"]
 
 [ext_resource type="PackedScene" uid="uid://dxoci03beoirh" path="res://Scenes/level_template.tscn" id="1_gen6d"]
 [ext_resource type="Texture2D" uid="uid://kj2oy5vuc20j" path="res://Assets/Stages/Lvl_8.png" id="2_uiapr"]
 [ext_resource type="PackedScene" uid="uid://dry1vljsg1cee" path="res://Units/enemy.tscn" id="3_hcop5"]
 [ext_resource type="PackedScene" uid="uid://7w0aigtov2ae" path="res://Units/main_character.tscn" id="4_wlpp7"]
 [ext_resource type="Script" path="res://Units/Spikes.gd" id="5_5lw3e"]
+[ext_resource type="PackedScene" uid="uid://bpupcmucnyxjh" path="res://subtitles.tscn" id="6_incul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7378"]
 size = Vector2(321, 8)
@@ -85,6 +86,8 @@ script = ExtResource("5_5lw3e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes10/Area2D" index="0"]
 position = Vector2(4, 56)
 shape = SubResource("RectangleShape2D_kiqlr")
+
+[node name="SUBTITLES" parent="." index="12" instance=ExtResource("6_incul")]
 
 [connection signal="area_entered" from="Spikes8/Area2D" to="Spikes8" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Spikes9/Area2D" to="Spikes9" method="_on_area_2d_area_entered"]

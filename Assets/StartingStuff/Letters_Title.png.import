@@ -1,0 +1,22 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dy7vfljitqw46"
+path="res://.godot/imported/Letters_Title.png-f4400df5ad69a8fb039647c75858f17b.fontdata"
+
+[deps]
+
+source_file="res://Assets/StartingStuff/Letters_Title.png"
+dest_files=["res://.godot/imported/Letters_Title.png-f4400df5ad69a8fb039647c75858f17b.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("32-126")
+columns=16
+rows=6
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true
+scaling_mode=2

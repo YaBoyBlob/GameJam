@@ -25,12 +25,12 @@ Music="*res://Music.tscn"
 Select="*res://select.tscn"
 Confirm="*res://Confirm.tscn"
 GameManager="*res://Scenes/GameManager.gd"
+SubtitlesUI="*res://subtitles.tscn"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
@@ -64,3 +64,5 @@ Pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

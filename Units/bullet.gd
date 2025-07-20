@@ -16,7 +16,7 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		var level = get_tree().current_scene
-		level.reset_level()
+		area.get_parent().hit(1)
 		queue_free()
 	if area.get_parent().is_in_group("Objects"):
 		queue_free()

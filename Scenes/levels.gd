@@ -9,7 +9,6 @@ extends Node2D
 @onready var reset = $CanvasLayer/Reset
 
 
-
 var objects = 0
 @export var level = 1
 
@@ -22,17 +21,18 @@ func _ready():
 	GameManager.lvl = self
 	GameManager.cur_lvl = level
 	GameManager.is_resetting = false
-	if level == 1:
-		blink.play("Blink-Open")
+	match level:
+		1:
+			blink.play("Blink-Open")
 
+	
 func _physics_process(delta):
 	for nodes in get_tree().get_nodes_in_group("Objects"):
 		if nodes.global_position.y > 400:
 			nodes.queue_free()
 			objects -=1
 	if player.global_position.y > 400:
-		GameManager.is_alive = false
-		get_tree().reload_current_scene()
+		reset_level()
 	if Input.is_action_just_pressed("Pause"): 
 		get_tree().paused = true
 
