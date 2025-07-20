@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://fe1jdadi4qdh"]
+[gd_scene load_steps=37 format=3 uid="uid://fe1jdadi4qdh"]
 
 [ext_resource type="Texture2D" uid="uid://buplprrgex87p" path="res://Assets/StartingStuff/Starting_Scene.png" id="1_6p1lm"]
 [ext_resource type="Script" path="res://Scenes/title_screen.gd" id="1_o31ak"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnnxa3fvqt4x0" path="res://Assets/StartingStuff/Menu_Start.png" id="5_ii03c"]
 [ext_resource type="Texture2D" uid="uid://dpxbslke2vh38" path="res://Assets/StartingStuff/Blink.png" id="6_dymbg"]
 [ext_resource type="Texture2D" uid="uid://kkrgvf5fqe35" path="res://Assets/StartingStuff/Menu_Exit-Black.png" id="8_vutoi"]
+[ext_resource type="Texture2D" uid="uid://bfptaegetlkt4" path="res://Assets/UIs/Menu_Options.png" id="9_4v0w5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nory4"]
 atlas = ExtResource("2_4hnip")
@@ -256,6 +257,14 @@ offset_bottom = 197.0
 focus_mode = 0
 texture_normal = ExtResource("5_ab7mp")
 texture_hover = ExtResource("8_vutoi")
+
+[node name="TextureButton" type="TextureButton" parent="UIs"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 190.0
+offset_right = 516.0
+offset_bottom = 254.0
+texture_normal = ExtResource("9_4v0w5")
 
 [node name="Blink" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 180)

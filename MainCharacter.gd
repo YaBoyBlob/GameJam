@@ -8,6 +8,8 @@ var is_pushing = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
 @onready var ray_cast_2d = $RayCast2D
+@onready var coyote_timer = $CoyoteTimer
+var single_jump = 0
 var alive = true
 var direction = 1
 var prev_direction = 1
@@ -22,13 +24,11 @@ func _physics_process(delta):
 	animation_handler()
 	if !is_on_floor():
 		velocity.y += delta * 1000
-	if is_on_floor():
+	if is_on_floor() || (!coyote_timer.is_stopped() && velocity.y>=0):
 		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("space") :
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("Jump")
-			
-	
-	
+
 	direction = Input.get_axis("left", "right") #go left/right
 	if direction!=0:
 		prev_direction = direction
@@ -42,7 +42,11 @@ func _physics_process(delta):
 	push_objects()
 	check_push()
 	
+	var was_on_floor = is_on_floor()
 	move_and_slide()
+	if was_on_floor && !is_on_floor():
+		coyote_timer.start()
+
 
 func push_objects():
 	#for body in hitbox.get_overlapping_bodies():
