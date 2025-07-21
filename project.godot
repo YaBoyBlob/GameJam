@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Game Jam"
+config/name="Untitled_Game"
 run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Units/gameIcon.png"
 
 [audio]
 
@@ -24,8 +24,8 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 Music="*res://Music.tscn"
 Select="*res://select.tscn"
 Confirm="*res://Confirm.tscn"
-GameManager="*res://Scenes/GameManager.gd"
 SubtitlesUI="*res://subtitles.tscn"
+GameManager="*res://Scenes/GameManager.gd"
 
 [display]
 

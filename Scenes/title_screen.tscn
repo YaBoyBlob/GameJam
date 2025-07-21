@@ -325,9 +325,65 @@ position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_rxk6r")
 animation = &"Blink-Close"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -105.0
+offset_right = 60.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.0509804, 0.584314, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 160.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VolumeUp" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_xth06")
+text = "Volume
+Up"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VolumeDown" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_xth06")
+text = "Volume
+Down"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_xth06")
+text = "Back"
+
 [connection signal="animation_finished" from="TitleScreenSprite" to="." method="_on_title_screen_sprite_animation_finished"]
 [connection signal="text_submitted" from="NewTitle" to="." method="_on_new_title_text_submitted"]
 [connection signal="button_down" from="UIs/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="UIs/ExitButton" to="." method="_on_exit_button_button_down"]
 [connection signal="mouse_entered" from="UIs/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="UIs/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="animation_finished" from="Blink" to="." method="_on_blink_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer/VolumeUp" to="." method="_on_volume_up_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer2/VolumeDown" to="." method="_on_volume_down_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer3/Back" to="." method="_on_back_pressed"]

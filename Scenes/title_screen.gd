@@ -16,7 +16,7 @@ extends Node2D
 func _ready():
 	title_screen_sprite.play("Start")
 	screen_animations.play("BlackSceen")
-	
+	$CanvasLayer/PauseMenu.visible = false
 
 
 
@@ -66,3 +66,24 @@ func _on_exit_button_mouse_entered():
 
 
 
+
+
+func _on_option_button_pressed():
+	$CanvasLayer/PauseMenu.visible = true
+	$UIs.visible = false
+
+var volume = AudioServer.get_bus_volume_db(0)
+
+func _on_volume_up_pressed():
+	volume += 1
+	AudioServer.set_bus_volume_db(0, volume)
+
+
+func _on_volume_down_pressed():
+	volume -= 1
+	AudioServer.set_bus_volume_db(0, volume)
+
+
+func _on_back_pressed():
+	$CanvasLayer/PauseMenu.visible = false
+	$UIs.visible = true

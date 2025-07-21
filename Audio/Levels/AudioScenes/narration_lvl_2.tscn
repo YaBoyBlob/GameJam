@@ -4,3 +4,4 @@
 
 [node name="NarrationLVL2" type="AudioStreamPlayer"]
 stream = ExtResource("1_lyp1m")
+bus = &"Sfx"
