@@ -69,21 +69,25 @@ func _on_exit_button_mouse_entered():
 
 
 func _on_option_button_pressed():
+	Select.play()
 	$CanvasLayer/PauseMenu.visible = true
 	$UIs.visible = false
 
 var volume = AudioServer.get_bus_volume_db(0)
 
 func _on_volume_up_pressed():
+	Select.play()
 	volume += 1
 	AudioServer.set_bus_volume_db(0, volume)
 
 
 func _on_volume_down_pressed():
+	Select.play()
 	volume -= 1
 	AudioServer.set_bus_volume_db(0, volume)
 
 
 func _on_back_pressed():
+	Select.play()
 	$CanvasLayer/PauseMenu.visible = false
 	$UIs.visible = true
