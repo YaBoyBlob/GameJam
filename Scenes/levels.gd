@@ -33,8 +33,8 @@ func _physics_process(delta):
 			objects -=1
 	if player.global_position.y > 400:
 		reset_level()
-	if Input.is_action_just_pressed("Pause"): 
-		get_tree().paused = true
+	#if Input.is_action_just_pressed("Pause"): oops
+		#get_tree().paused = true
 
 
 func _on_area_2d_area_exited(area): #switch new level
